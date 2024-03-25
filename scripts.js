@@ -1,5 +1,6 @@
 //Event listener to make sure the body is loaded
 document.addEventListener("DOMContentLoaded", () => {
+	const dice = [];
 	// Get ahold of the button
 	const button = document.getElementById("button");
 	const rollButton = document.getElementById("roll-button");
@@ -27,17 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	class Die {
 		constructor() {
 			console.log(`Die made`);
-			this.value = Math.floor(Math.random() * 6);
+			this.value = Math.floor(Math.random() * 6) + 1;
 			console.log(`this.value`, this.value);
 			this.div = document.createElement("div");
 			this.div.className = "die";
 			this.div.id = this.value;
 			this.div.innerHTML = this.value;
 			container.appendChild(this.div);
+			dice.push(this);
 		}
 		roll() {
 			console.log(`Dice rolled`);
-			this.value = Math.floor(Math.random() * 6);
+			this.value = Math.floor(Math.random() * 6) + 1;
 			this.div.innerHTML = this.value;
 		}
 	}
